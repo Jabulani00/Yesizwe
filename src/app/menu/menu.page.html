@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Yesizwe Bus Services</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment (ionChange)="segmentChanged($event)" value="tickets">
+    <ion-segment-button value="tickets">
+      <ion-icon name="ticket-outline"></ion-icon>
+      <ion-label>Bus Tickets</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="hire">
+      <ion-icon name="bus-outline"></ion-icon>
+      <ion-label>Bus Hire</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="currentSegment === 'tickets'">
+    <ion-card class="route-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="locate-outline"></ion-icon>
+          Durban to Johannesburg
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="bus-outline" class="route-icon"></ion-icon>
+        <p>Select your preferred date and time</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" (click)="toggleDatePicker()" class="date-button">
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      Select Date: {{ formattedDate }}
+    </ion-button>
+
+    <ion-datetime
+      *ngIf="showDatePicker"
+      presentation="date"
+      [(ngModel)]="selectedDate"
+      (ionChange)="dateChanged($event)"
+      (ionCancel)="toggleDatePicker()"
+      [showDefaultButtons]="true">
+    </ion-datetime>
+
+    <ion-list>
+      <ion-item *ngFor="let ticket of filteredTickets" class="ticket-item">
+        <ion-card class="ticket-card">
+          <div class="ticket-header">
+            <h2><ion-icon name="swap-horizontal-outline"></ion-icon> {{ ticket.departure }} - {{ ticket.arrival }}</h2>
+            <p class="departure-time"><ion-icon name="time-outline"></ion-icon> {{ ticket.departureTime }}</p>
+          </div>
+          <div class="ticket-content">
+            <div class="ticket-info">
+              <p><ion-icon name="hourglass-outline"></ion-icon> Duration: {{ ticket.duration }}</p>
+              <p><ion-icon name="cash-outline"></ion-icon> Price: R{{ ticket.price }}</p>
+              <p><ion-icon name="people-outline"></ion-icon> Available Seats: {{ ticket.availableSeats }}</p>
+            </div>
+            <ion-button expand="block" (click)="bookTicket(ticket)" class="book-button">
+              <ion-icon name="ticket-outline" slot="start"></ion-icon>
+              Book Now
+            </ion-button>
+          </div>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="currentSegment === 'hire'">
+    <ion-card class="hire-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="bus-outline"></ion-icon>
+          Bus Hire Services
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><ion-icon name="information-circle-outline"></ion-icon> Need a bus for a special event? We've got you covered!</p>
+        <form (ngSubmit)="submitHireForm()">
+          <ion-item>
+            <ion-label position="floating">
+              <ion-icon name="person-outline"></ion-icon>
+              Full Name
+            </ion-label>
+            <ion-input [(ngModel)]="hireForm.name" name="name" required></ion-input>
+            <ion-icon name="help-circle-outline" slot="end" class="tooltip-icon" (click)="showTooltip('Enter your full name')"></ion-icon>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">
+              <ion-icon name="mail-outline"></ion-icon>
+              Email
+            </ion-label>
+            <ion-input [(ngModel)]="hireForm.email" name="email" type="email" required></ion-input>
+            <ion-icon name="help-circle-outline" slot="end" class="tooltip-icon" (click)="showTooltip('Enter your email address')"></ion-icon>
+          </ion-item>
+
+        
+
+          <ion-button expand="block" (click)="toggleDatePicker()" class="date-button">
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            Event Date: {{ formattedDate }}
+          </ion-button>
+      
+          <ion-datetime
+            *ngIf="showDatePicker"
+            presentation="date"
+            [(ngModel)]="selectedDate"
+            (ionChange)="dateChanged($event)"
+            (ionCancel)="toggleDatePicker()"
+            [showDefaultButtons]="true">
+          </ion-datetime>
+
+          <ion-item>
+            <ion-label position="floating">
+              <ion-icon name="people-outline"></ion-icon>
+              Number of Passengers
+            </ion-label>
+            <ion-input [(ngModel)]="hireForm.passengers" name="passengers" type="number" required></ion-input>
+            <ion-icon name="help-circle-outline" slot="end" class="tooltip-icon" (click)="showTooltip('Enter the number of passengers')"></ion-icon>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">
+              <ion-icon name="create-outline"></ion-icon>
+              Additional Requirements
+            </ion-label>
+            <ion-textarea [(ngModel)]="hireForm.requirements" name="requirements" rows="3"></ion-textarea>
+            <ion-icon name="help-circle-outline" slot="end" class="tooltip-icon" (click)="showTooltip('Enter any additional requirements or details')"></ion-icon>
+          </ion-item>
+
+          <ion-button expand="block" type="submit" class="submit-button">
+            <ion-icon name="send-outline" slot="start"></ion-icon>
+            Submit Quote Request
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

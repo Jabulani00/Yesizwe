@@ -1,0 +1,71 @@
+:host {
+    --ion-color-primary: #199DC1;
+    --ion-color-primary-rgb: 74, 144, 226;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #100446;
+    --ion-color-primary-tint: #5c9be5;
+  }
+ion-content {
+    --background: #f0f8ff;
+  }
+  
+  .ticket-summary, .payment-details {
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .ticket-summary {
+    background: linear-gradient(135deg, var(--ion-color-primary), #87cefa);
+    color: white;
+  
+    ion-card-header {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  
+    ion-item {
+      --background: transparent;
+      --color: white;
+    }
+  
+    ion-icon {
+      color: white;
+    }
+  }
+  
+  .payment-details {
+    background: white;
+  
+    ion-card-header {
+      background: var(--ion-color-primary);
+      color: white;
+    }
+  }
+  
+  .card-info {
+    display: flex;
+    justify-content: space-between;
+  
+    ion-item {
+      width: 48%;
+    }
+  }
+  
+  .card-types {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+  
+    .card-logo {
+      width: 50px;
+      margin-left: 10px;
+    }
+  }
+  
+  .confirm-button {
+    margin-top: 20px;
+    --background: #32cd32;
+    --color: white;
+    font-weight: bold;
+  }

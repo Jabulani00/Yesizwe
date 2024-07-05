@@ -1,0 +1,81 @@
+:host {
+    --ion-color-primary: #199DC1;
+    --ion-color-primary-rgb: 74, 144, 226;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #100446;
+    --ion-color-primary-tint: #5c9be5;
+  }
+  
+  ion-content {
+    --background: #f0f8ff;
+  }
+  
+  ion-segment {
+    --background: var(--ion-color-primary);
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  
+  ion-segment-button {
+    --background-checked: #ffffff;
+    --color-checked: var(--ion-color-primary);
+    --indicator-color: transparent;
+  }
+  
+  .ticket-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .ticket-card {
+    width: calc(100% - 20px);
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+  
+    ion-card-header {
+      background: var(--ion-color-primary);
+      color: white;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+  
+    ion-card-title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  
+    ion-card-subtitle {
+      color: #e0e0e0;
+    }
+  
+    ion-card-content {
+      padding: 15px;
+    }
+  
+    ion-icon {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  
+    ion-badge {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 20px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .ticket-card {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .ticket-card {
+      width: calc(33.33% - 20px);
+    }
+  }

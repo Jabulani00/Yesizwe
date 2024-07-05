@@ -1,0 +1,163 @@
+:host {
+    --ion-color-primary: #199DC1;
+    --ion-color-primary-rgb: 74, 144, 226;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #100446;
+    --ion-color-primary-tint: #5c9be5;
+  }
+  
+  ion-content {
+    --background: #f0f8ff;
+  }
+  
+  .route-card, .hire-card {
+    background: linear-gradient(135deg, var(--ion-color-primary), #87cefa);
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .route-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .ticket-item {
+    --background: transparent;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+  }
+  
+  .ticket-card {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ticket-header {
+    background: var(--ion-color-primary);
+    color: white;
+    padding: 15px;
+  
+    h2 {
+      margin: 0;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  
+    .departure-time {
+      font-size: 1.1em;
+      margin: 5px 0 0;
+    }
+  }
+  
+  .ticket-content {
+    padding: 15px;
+  }
+  
+  .ticket-info {
+    p {
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+  
+      ion-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+  
+  .book-button {
+    --background: #ffd700;
+    --color: #000;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    ion-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    .ticket-item {
+      width: calc(50% - 10px);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .ticket-item {
+      width: calc(33.33% - 10px);
+    }
+  }
+
+  ion-content {
+    --background: #f0f8ff;
+  }
+  
+  ion-segment {
+    background: var(--ion-color-primary);
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  
+  ion-segment-button {
+    --color: #ffffff;
+    --color-checked: var(--ion-color-primary);
+    --indicator-color: #ffffff;
+  }
+  
+  .route-card, .hire-card {
+    background: linear-gradient(135deg, var(--ion-color-primary), #87cefa);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .route-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .date-button {
+    --background: var(--ion-color-primary);
+    margin-bottom: 20px;
+  }
+  
+  .ticket-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .ticket-header {
+    background: var(--ion-color-primary);
+    color: white;
+    padding: 10px;
+  }
+  
+  .ticket-content {
+    padding: 15px;
+  }
+  
+  .book-button, .submit-button {
+    --background: #4CAF50;
+    --color: white;
+  }
+  
+  .tooltip-icon {
+    font-size: 20px;
+    color: var(--ion-color-primary);
+  }
+  
+  ion-item {
+    --background: transparent;
+    margin-bottom: 10px;
+  }
