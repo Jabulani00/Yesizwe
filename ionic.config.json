@@ -1,0 +1,7 @@
+{
+  "name": "busTicks",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
